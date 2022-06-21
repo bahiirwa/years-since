@@ -2,11 +2,11 @@
 /**
  * Plugin Name: Years Since
  * Plugin URI: https://omukiguy.com/
- * Description: Let your post time travel. Texts like "I have worked for x years in web dev" become outdated within a year. Years since keeps the date related texts current in your posts and allow your content to age well. 
- * Version: 1.3.1
+ * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
+ * Version: 1.3.2
  * Author: Laurence Bahiirwa
  * Author URI: https://omukiguy.com/
- * Tested up to: 5.6.0
+ * Tested up to: 6.0
  * Text Domain: years-since
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -14,7 +14,7 @@
 namespace Laurencebahiirwa;
 
 // Basic stop of brute force use.
-defined('ABSPATH') or die('Unauthorized Access!');
+defined('ABSPATH') || die('Unauthorized Access!');
 
 /**
  * Implement the plugin. Let your post time travel.

@@ -1,18 +1,18 @@
 === Years Since ===
 Contributors: laurencebahiirwa
 Tags: date, update, updater, time, span, year, automated, references
-Donate link: https://omukiguy.com/
+Donate link: https://paypal.me/laurencebahiirwa
 Requires at least: 4.9.0
-Tested up to: 5.6.0
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Keep the date related texts current in your posts and allow your content to age well seemlessly. Texts like "I have worked for x years in web dev" in articles are outdated within a year. This plugin keeps them upto date automatically.
+Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
 
 == Description ==
-Keep the date related texts current in your posts and allow your content to age well seemlessly. Texts like "I have worked for x years in web dev" in articles are outdated within a year. This plugin keeps them upto date automatically.
+Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
 
 == Usage ==
 A year must be provided in your text by the attribute "y" such as ``[years-since y=2012]``.
@@ -31,21 +31,19 @@ Or, if you wanted to update a time span on a particular anniversary, you could d
 
 == Frequently Asked Questions ==
 
-= Does it work with Gutenberg? =
-Yes. If you have been using this plugin previously, the new editor used to have breaking changes.
-These were managed well by wrapping the old text with new shortcode [years-since-gb] like:
-
-``[years-since-gb]I'm [years-since y=1990 m=5 d=16] old.[/years-since-gb]``.
-
-However, not any more, the issue has since been fixed in the editor.
+= Does it work with the Block Editor/Gutenberg? =
+Yes.
 
 = Does it work with ClassicPress? =
-Yes. This will still work even if you revert back to the Classic Editor seamlessly.
+Yes. This will still work even if you revert to the Classic Editor seamlessly.
 
 = How can I contribute? =
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 == Upgrade Notice ==
+
+== 1.3.2 ==
+- Fix `or` to `||`
 
 == 1.3.1 ==
 * Namespace the plugin to avoid PHP conflicts.

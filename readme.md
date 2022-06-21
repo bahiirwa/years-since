@@ -1,5 +1,5 @@
 # Years Since
-Let your post time travel. Texts like "I have worked for x years in web dev" become outdated within a year. Years since keeps the date related texts current in your posts and allow your content to age well.
+Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
 
 ## Usage
 A year must be provided in your text by the attribute "y" such as ``[years-since y=2012]``.
@@ -10,6 +10,10 @@ For example, on an "About" page text, you might have something like:
 > We've worked remotely for ``[years-since y=2012]``, which has allowed the team to spend more time traveling and spending time with family.
 Or, if you wanted to update a time span on a particular anniversary, you could do something like:
 ``I'm [years-since y=1990 m=5 d=16] old.``
+
+![Admin Shortcode](./.wordpress-org/screenshot-1.png)
+
+![Page/Post Preview](./.wordpress-org/screenshot-2.png)
 
 ## Installation
 * Navigate to your plugins admin page.
@@ -33,6 +37,9 @@ Yes. This will still work even if you revert back to the Classic Editor seamless
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 ## Upgrade Notice
+
+### 1.3.2
+- Fix `or` to `||`
 
 ### 1.3.1
 - Namespace the plugin to avoid PHP conflicts.
