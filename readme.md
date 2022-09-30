@@ -1,7 +1,14 @@
 # Years Since
+
+![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/installs/years-since)
+![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/years-since)
+![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/rating/years-since)
+![WordPress Plugin Last Updated](https://img.shields.io/wordpress/plugin/last-updated/years-since)
+
 Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
 
 ## Usage
+
 A year must be provided in your text by the attribute "y" such as ``[years-since y=2012]``.
 As an option, Months by referencing "m" and day by using "d". Months and day default to "1" if not added in the shortcode.
 
