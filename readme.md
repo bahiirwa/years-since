@@ -45,6 +45,11 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 
 ## Upgrade Notice
 
+### 1.3.3
+- Fix: Time calculations and messaging.
+- Test: WP 6.3.1.
+- Test: PHP 8.2.10.
+
 ### 1.3.2
 - Fix `or` to `||`
 
