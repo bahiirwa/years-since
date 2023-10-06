@@ -105,6 +105,13 @@ class YearsSince {
 		$inputDate  = new \DateTime("$y-$m-$d"); // Returns'2023-10-15'
 		$difference = date_diff($today,$inputDate);
 
+		// If only the number is needed, return it here.
+		if ( isset($atts['text'] ) && 'false' === $atts['text'] ) {
+			$str = '<' . $defaults['html'] . '>' . $difference->y . '</' . $defaults['html'] . '>';
+			// $str = $difference->y;
+			return $str;
+		}
+
 		// Compare the two dates using comparison methods.
 		if ($inputDate > $today) {
 			return __('Invalid date provided. Date cannot be greater than today.', 'years-since');
