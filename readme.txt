@@ -42,9 +42,11 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 
 == Upgrade Notice ==
 
-== 1.3.3 ==
+== 1.3.4 ==
 - Fix: Restore minus text format for the calculations.
 - Add: Translations file build + .pot.
+- Add: Default attributes for the shortcode.
+- New: HTML Default argument paragraph `html` attribute as "p" for the shortcode output.
 
 == 1.3.3 ==
 - Fix: Time calculations and messaging.

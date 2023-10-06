@@ -58,7 +58,7 @@ class YearsSince {
 
 		$defaults = shortcode_atts( array(
 			'html' => 'p',
-			'text' => 'false',
+			'text' => 'true',
 		), $atts );
 
 		if ( isset($atts['y'])) {
