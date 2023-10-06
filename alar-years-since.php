@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name: Years Since
- * Plugin URI: https://omukiguy.com/
+ * Plugin URI: https://github.com/bahiirwa/years-since/
  * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
- * Version: 1.3.3
+ * Version: 1.3.4
  * Author: Laurence Bahiirwa
- * Author URI: https://omukiguy.com/
- * Tested up to: 6.0
+ * Author URI: https://github.com/bahiirwa/years-since/
+ * Tested up to: 6.3.1
  * Text Domain: years-since
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -46,24 +46,7 @@ class YearsSince {
 	 * @return string
 	 */
 	public function shortcode_years_since_gb($atts, $content = null) {
-		return '<p>' . do_shortcode($content) . '</p>';
-	}
-
-	/**
-	 * Translate the string.
-	 * Return Calculated time.
-	 */
-	public function string_return($time, $singular, $plural) {
-		$str = sprintf(
-			_n(
-				'%d ' . $singular,
-				'%d ' . $plural,
-				$time,
-				'years-since'
-			),
-			number_format_i18n($time)
-		);
-		return $str;
+		return do_shortcode( $content );
 	}
 
 	/**
@@ -71,43 +54,48 @@ class YearsSince {
 	 * @param array $atts
 	 * @return string
 	 */
-	public function shortcode_years_since($atts = []) {
+	public function shortcode_years_since( $atts ) {
+
+		$defaults = shortcode_atts( array(
+			'html' => 'p',
+			'text' => 'true',
+		), $atts );
 
 		if ( isset($atts['y'])) {
 			// Bail if year value is not 4 digits long.
 			if (strlen($atts['y']) !== 4) {
-				return __('Year must be 4 digits.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Year must be 4 digits.', 'years-since') );
 			}
 
 			// Bail if year is in the future.
 			if ($atts['y'] > date('Y')) {
-				return __('Year cannot be greater than current year.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Year cannot be greater than current year.', 'years-since') );
 			}
 		}
 
 		if ( isset($atts['m']) ) {
 			// Bail if year value is not 4 digits long.
 			if (strlen($atts['m']) > 2) {
-				return __('Month must be 2 digits.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Month must be 2 digits.', 'years-since') );
 			}
 
 			if ( (int)$atts['m'] > 12 ) {
-				return __('Month less than 12.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Month should be a value less than 12.', 'years-since') );
 			}
 		}
 
 		if ( isset($atts['d']) ) {
 			// Bail if year value is not 4 digits long.
 			if (strlen($atts['d']) > 2) {
-				return __('Day must be 2 digits.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Day must be 2 digits.', 'years-since') );
 			}
 
 			if ( (int)$atts['d'] > 31 ) {
-				return __('Days must be less than 31.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Days should be a value less than 31.', 'years-since') );
 			}
 
 			if ( (int)$atts['m'] == 2 && (int)$atts['d'] > 28 ) {
-				return __('Days in Feb must be less than 28.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Days in Feb should be a value less than 28.', 'years-since') );
 			}
 		}
 
@@ -122,6 +110,13 @@ class YearsSince {
 		$inputDate  = new \DateTime("$y-$m-$d"); // Returns'2023-10-15'
 		$difference = date_diff($today,$inputDate);
 
+		// If only the number is needed, return it here.
+		if ( isset($atts['text'] ) && 'false' === $atts['text'] ) {
+			$str = '<' . $defaults['html'] . '>' . $difference->y . '</' . $defaults['html'] . '>';
+			// $str = $difference->y;
+			return $str;
+		}
+
 		// Compare the two dates using comparison methods.
 		if ($inputDate > $today) {
 			return __('Invalid date provided. Date cannot be greater than today.', 'years-since');
@@ -131,17 +126,35 @@ class YearsSince {
 		if ($difference->y < 1 && $difference->m < 1) {			
 			// Return Weeks
 			if ($difference->d/7 > 1) {
-				return $this->string_return($difference->d/7, __('week', 'years-since'), __('weeks', 'years-since'));
+				return $this->string_return($difference->d/7, __('week', 'years-since'), __('weeks', 'years-since'), $defaults );
 			}
 			// Return days if less than a Week
-			return $this->string_return($difference->d, __('day', 'years-since'), __('days', 'years-since'));
+			return $this->string_return($difference->d, __('day', 'years-since'), __('days', 'years-since'), $defaults );
 		}
 		// Return Months
 		if ($difference->y < 1) {
-			return $this->string_return($difference->m, __('month', 'years-since'), __('months', 'years-since'));
+			return $this->string_return($difference->m, __('month', 'years-since'), __('months', 'years-since'), $defaults );
 		}
 		// Otherwise, return years
-		return $this->string_return($difference->y, __('year', 'years-since'), __('years', 'years-since'));
+		return $this->string_return($difference->y, __('year', 'years-since'), __('years', 'years-since'), $defaults );
+	}
+
+	/**
+	 * Translate the string.
+	 * Return Calculated time.
+	 */
+	public function string_return($time, $singular, $plural, $defaults ) {
+		$str = sprintf(
+			_n(
+				'%d ' . $singular,
+				'%d ' . $plural,
+				$time,
+				'years-since'
+			),
+			number_format_i18n($time)
+		);
+		$str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+		return $str;
 	}
 }
 
