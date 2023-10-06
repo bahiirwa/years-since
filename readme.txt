@@ -5,7 +5,7 @@ Donate link: https://paypal.me/laurencebahiirwa
 Requires at least: 4.9.0
 Tested up to: 6.3.1
 Requires PHP: 5.6
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,10 @@ Yes. This will still work even if you revert to the Classic Editor seamlessly.
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 == Upgrade Notice ==
+
+== 1.3.3 ==
+- Fix: Restore minus text format for the calculations.
+- Add: Translations file build + .pot.
 
 == 1.3.3 ==
 - Fix: Time calculations and messaging.

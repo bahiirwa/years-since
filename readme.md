@@ -45,6 +45,9 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 
 ## Upgrade Notice
 
+### 1.3.4
+- Fix: Restore minus text format for the calculations.
+- Add: Translations file build + .pot
 ### 1.3.3
 - Fix: Time calculations and messaging.
 - Test: WP 6.3.1.
