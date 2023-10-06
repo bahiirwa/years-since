@@ -54,43 +54,48 @@ class YearsSince {
 	 * @param array $atts
 	 * @return string
 	 */
-	public function shortcode_years_since($atts = []) {
+	public function shortcode_years_since( $atts ) {
+
+		$defaults = shortcode_atts( array(
+			'html' => 'p',
+			'text' => 'false',
+		), $atts );
 
 		if ( isset($atts['y'])) {
 			// Bail if year value is not 4 digits long.
 			if (strlen($atts['y']) !== 4) {
-				return __('Year must be 4 digits.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Year must be 4 digits.', 'years-since') );
 			}
 
 			// Bail if year is in the future.
 			if ($atts['y'] > date('Y')) {
-				return __('Year cannot be greater than current year.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Year cannot be greater than current year.', 'years-since') );
 			}
 		}
 
 		if ( isset($atts['m']) ) {
 			// Bail if year value is not 4 digits long.
 			if (strlen($atts['m']) > 2) {
-				return __('Month must be 2 digits.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Month must be 2 digits.', 'years-since') );
 			}
 
 			if ( (int)$atts['m'] > 12 ) {
-				return __('Month less than 12.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Month should be a value less than 12.', 'years-since') );
 			}
 		}
 
 		if ( isset($atts['d']) ) {
 			// Bail if year value is not 4 digits long.
 			if (strlen($atts['d']) > 2) {
-				return __('Day must be 2 digits.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Day must be 2 digits.', 'years-since') );
 			}
 
 			if ( (int)$atts['d'] > 31 ) {
-				return __('Days must be less than 31.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Days should be a value less than 31.', 'years-since') );
 			}
 
 			if ( (int)$atts['m'] == 2 && (int)$atts['d'] > 28 ) {
-				return __('Days in Feb must be less than 28.', 'years-since');
+				return sprintf( '<p>%s</p>', esc_attr__('Days in Feb should be a value less than 28.', 'years-since') );
 			}
 		}
 
