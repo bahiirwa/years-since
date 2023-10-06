@@ -46,24 +46,7 @@ class YearsSince {
 	 * @return string
 	 */
 	public function shortcode_years_since_gb($atts, $content = null) {
-		return '<p>' . do_shortcode($content) . '</p>';
-	}
-
-	/**
-	 * Translate the string.
-	 * Return Calculated time.
-	 */
-	public function string_return($time, $singular, $plural) {
-		$str = sprintf(
-			_n(
-				'%d ' . $singular,
-				'%d ' . $plural,
-				$time,
-				'years-since'
-			),
-			number_format_i18n($time)
-		);
-		return $str;
+		return do_shortcode( $content );
 	}
 
 	/**
@@ -131,17 +114,35 @@ class YearsSince {
 		if ($difference->y < 1 && $difference->m < 1) {			
 			// Return Weeks
 			if ($difference->d/7 > 1) {
-				return $this->string_return($difference->d/7, __('week', 'years-since'), __('weeks', 'years-since'));
+				return $this->string_return($difference->d/7, __('week', 'years-since'), __('weeks', 'years-since'), $defaults );
 			}
 			// Return days if less than a Week
-			return $this->string_return($difference->d, __('day', 'years-since'), __('days', 'years-since'));
+			return $this->string_return($difference->d, __('day', 'years-since'), __('days', 'years-since'), $defaults );
 		}
 		// Return Months
 		if ($difference->y < 1) {
-			return $this->string_return($difference->m, __('month', 'years-since'), __('months', 'years-since'));
+			return $this->string_return($difference->m, __('month', 'years-since'), __('months', 'years-since'), $defaults );
 		}
 		// Otherwise, return years
-		return $this->string_return($difference->y, __('year', 'years-since'), __('years', 'years-since'));
+		return $this->string_return($difference->y, __('year', 'years-since'), __('years', 'years-since'), $defaults );
+	}
+
+	/**
+	 * Translate the string.
+	 * Return Calculated time.
+	 */
+	public function string_return($time, $singular, $plural, $defaults ) {
+		$str = sprintf(
+			_n(
+				'%d ' . $singular,
+				'%d ' . $plural,
+				$time,
+				'years-since'
+			),
+			number_format_i18n($time)
+		);
+		$str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+		return $str;
 	}
 }
 
