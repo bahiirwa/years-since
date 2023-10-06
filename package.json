@@ -1,0 +1,25 @@
+{
+	"name": "years-since",
+	"version": "0.1.0",
+	"description": "This is a plugin that allows an admin to create and delete information.",
+	"author": "Mediauganda",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bahiirwa/years-since"
+	},
+	"devDependencies": {
+		"gulp": "^4.0.2"
+	},
+	"browserslist": [
+		"defaults",
+		"not IE 11",
+		"maintained node versions"
+	],
+	"dependencies": {
+		"gulp-wp-pot": "^2.5.0"
+	},
+	"scripts": {
+		"dev" : "gulp watch",
+		"build" : "gulp wp_pot"
+	}
+}
