@@ -3,7 +3,7 @@
  * Plugin Name: Years Since
  * Plugin URI: https://github.com/bahiirwa/years-since/
  * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
- * Version: 1.3.4
+ * Version: 1.3.5
  * Author: Laurence Bahiirwa
  * Author URI: https://github.com/bahiirwa/years-since/
  * Tested up to: 6.3.1
