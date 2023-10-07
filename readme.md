@@ -29,9 +29,9 @@ Add specific HTML to the calculation with the html attrribute e.g.
 `[years-since y=1990 html=span]` will wrap the output in a span tag.
 
 #### text attribute
-Add specific HTML to the calculation with the html attrribute e.g.
+Add a text attribute with value false i.e.
 
-`[years-since y=1990 text=false]` will remove the text years from the calculation. It will outpust `23` instead of `23 years`.
+`[years-since y=1990 text=false]` will remove the text years from the calculation. It will output `23` instead of `23 years`.
 
 ## Installation
 * Navigate to your plugins admin page.
