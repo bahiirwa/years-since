@@ -22,6 +22,17 @@ Or, if you wanted to update a time span on a particular anniversary, you could d
 
 ![Page/Post Preview](./.wordpress-org/screenshot-2.png)
 
+### More attributes
+#### html attribute
+Add specific HTML to the calculation with the html attrribute e.g.
+
+`[years-since y=1990 html=span]` will wrap the output in a span tag.
+
+#### text attribute
+Add specific HTML to the calculation with the html attrribute e.g.
+
+`[years-since y=1990 text=false]` will remove the text years from the calculation. It will outpust `23` instead of `23 years`.
+
 ## Installation
 * Navigate to your plugins admin page.
 * Search for "years since" and download the plugin.
@@ -30,12 +41,7 @@ Or, if you wanted to update a time span on a particular anniversary, you could d
 ## Frequently Asked Questions
 
 ### Does it work with Gutenberg?
-Yes. If you have been using this plugin previously, the new editor used to have breaking changes.
-These were managed well by wrapping the old text with new shortcode [years-since-gb] like:
-
-``[years-since-gb]I'm [years-since y=1990 m=5 d=16] old.[/years-since-gb]``.
-
-However, not any more, the issue has since been fixed in the editor.
+Yes.
 
 ### Does it work with ClassicPress?
 Yes. This will still work even if you revert back to the Classic Editor seamlessly.
@@ -44,6 +50,9 @@ Yes. This will still work even if you revert back to the Classic Editor seamless
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 ## Upgrade Notice
+
+### 1.3.5
+- Fix: Breaking change HTML Default argument paragraph `html` attribute as "p" for the shortcode output.
 
 ### 1.3.4
 - Fix: Restore minus text format for the calculations.
