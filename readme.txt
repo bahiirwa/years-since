@@ -24,16 +24,17 @@ For example, on an "About" page text, you might have something like:
 Or, if you wanted to update a time span on a particular anniversary, you could do something like:
 **I'm [years-since y=1990 m=5 d=16] old.**
 
-=== More attributes ===
-** html attribute **
-Add specific HTML to the calculation with the html attrribute e.g.
+== More attributes ==
+**html**
+Add specific HTML tag to the calculation with the html attrribute e.g.
 
-`[years-since y=1990 html=span]` will wrap the output in a span tag.
+**[years-since y=1990 html=span]** will wrap the output in a span tag.
 
-** text attribute **
+**text**
 Add a text attribute with value false i.e.
+**[years-since y=1990 text=false]** will remove the text years from the calculation.
 
-`[years-since y=1990 text=false]` will remove the text years from the calculation. It will output `23` instead of `23 years`.
+It will output **23** instead of **23 years**.
 
 == Installation ==
 * Navigate to your plugins admin page.
