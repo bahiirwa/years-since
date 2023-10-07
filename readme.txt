@@ -5,7 +5,7 @@ Donate link: https://paypal.me/laurencebahiirwa
 Requires at least: 4.9.0
 Tested up to: 6.3.1
 Requires PHP: 5.6
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,14 +15,25 @@ Keep date time related texts relevant. "I have worked for x years." becomes outd
 Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts and allow your content to age well. 
 
 == Usage ==
-A year must be provided in your text by the attribute "y" such as ``[years-since y=2012]``.
+A year must be provided in your text by the attribute "y" such as **[years-since y=2012]**.
 As an option, Months by referencing "m" and day by using "d". Months and day default to "1" if not added in the shortcode.
 
 For example, on an "About" page text, you might have something like:
 
-> We've worked remotely for ``[years-since y=2012]``, which has allowed the team to spend more time traveling and spending time with family.
+> We've worked remotely for **[years-since y=2012]**, which has allowed the team to spend more time traveling and spending time with family.
 Or, if you wanted to update a time span on a particular anniversary, you could do something like:
-``I'm [years-since y=1990 m=5 d=16] old.``
+**I'm [years-since y=1990 m=5 d=16] old.**
+
+=== More attributes ===
+** html attribute **
+Add specific HTML to the calculation with the html attrribute e.g.
+
+`[years-since y=1990 html=span]` will wrap the output in a span tag.
+
+** text attribute **
+Add a text attribute with value false i.e.
+
+`[years-since y=1990 text=false]` will remove the text years from the calculation. It will output `23` instead of `23 years`.
 
 == Installation ==
 * Navigate to your plugins admin page.
@@ -41,6 +52,9 @@ Yes. This will still work even if you revert to the Classic Editor seamlessly.
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 == Upgrade Notice ==
+
+== 1.3.5 ==
+- Fix: Breaking change HTML Default argument paragraph `html` attribute as "p" for the shortcode output.
 
 == 1.3.4 ==
 - Fix: Restore minus text format for the calculations.

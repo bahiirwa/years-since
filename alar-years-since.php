@@ -57,7 +57,7 @@ class YearsSince {
 	public function shortcode_years_since( $atts ) {
 
 		$defaults = shortcode_atts( array(
-			'html' => 'p',
+			'html' => '',
 			'text' => 'true',
 		), $atts );
 
@@ -112,14 +112,17 @@ class YearsSince {
 
 		// If only the number is needed, return it here.
 		if ( isset($atts['text'] ) && 'false' === $atts['text'] ) {
-			$str = '<' . $defaults['html'] . '>' . $difference->y . '</' . $defaults['html'] . '>';
+			$str = $difference->y;
+			if ( '' !== $defaults['html'] ) {
+				$str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+			}
 			// $str = $difference->y;
 			return $str;
 		}
 
 		// Compare the two dates using comparison methods.
 		if ($inputDate > $today) {
-			return __('Invalid date provided. Date cannot be greater than today.', 'years-since');
+			return sprintf( '<p>%s</p>', esc_attr__( 'Invalid date provided. Date cannot be greater than today.', 'years-since') );
 		}
 
 		// Return Weeks or days if less than a Week
@@ -153,7 +156,11 @@ class YearsSince {
 			),
 			number_format_i18n($time)
 		);
-		$str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+		
+		if ( '' !== $defaults['html'] ) {
+			$str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+		}
+
 		return $str;
 	}
 }
