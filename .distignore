@@ -9,3 +9,8 @@ readme.md
 gulpfile.js
 package.json
 package-lock.json
+composer.json
+composer-lock.json
+phpunit.xml
+vendor
+tests

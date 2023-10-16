@@ -2,3 +2,8 @@
 gulpfile.js export-ignore
 package.json export-ignore
 package-lock.json export-ignore
+composer.json export-ignore
+composer-lock.json export-ignore
+vendor export-ignore
+tests export-ignore
+phpunit.xml export-ignore
