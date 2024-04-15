@@ -5,3 +5,4 @@ tmp
 *.css.map
 assets/banner-sizes.txt
 package-lock.json
+.idea/*

@@ -51,6 +51,14 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 
 ## Upgrade Notice
 
+### 1.4.0
+- Fix: Breaking month and day output.
+- Add: Testing for WP 6.5.2
+- Add: Require PHP 8.2.0
+- Add: Require PHP 7.4
+- Add: Function arguments and Return Type hinting.
+- Fix: Deprecate Editor poylfill function for the block editor.
+
 ### 1.3.5
 - Fix: Breaking change HTML Default argument paragraph `html` attribute as "p" for the shortcode output.
 
