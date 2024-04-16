@@ -18,9 +18,9 @@ For example, on an "About" page text, you might have something like:
 Or, if you wanted to update a time span on a particular anniversary, you could do something like:
 ``I'm [years-since y=1990 m=5 d=16] old.``
 
-![Admin Shortcode](./.wordpress-org/screenshot-1.png)
+![Admin Shortcode](./.wordpress-org/screenshot-3.png)
 
-![Page/Post Preview](./.wordpress-org/screenshot-2.png)
+![Page/Post Preview](./.wordpress-org/screenshot-4.png)
 
 ### More attributes
 #### html attribute
