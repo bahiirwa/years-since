@@ -6,6 +6,7 @@
 
 .distignore
 .gitignore
+.gitattributes
 readme.md
 gulpfile.js
 phpunit.xml
