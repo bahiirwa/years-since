@@ -2,10 +2,14 @@
 /.git
 /.github
 /node_modules
+/tests/
 
 .distignore
 .gitignore
 readme.md
 gulpfile.js
+phpunit.xml
 package.json
 package-lock.json
+composer.json
+composer-lock.json
