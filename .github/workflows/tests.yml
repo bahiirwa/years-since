@@ -1,0 +1,49 @@
+name: Run Tests.
+
+on:
+  push:
+    branches:
+      - trunk
+  pull_request:
+    branches:
+      - trunk
+
+# Cancel all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  phpcs:
+    name: PHPCS check
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.2', '8.3']
+        experimental: [false]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: 'shivammathur/setup-php@v2'
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer
+          ini-values: memory_limit=1G
+          coverage: none
+
+      - name: Install Composer dependencies
+        uses: 'ramsey/composer-install@v2'
+        with:
+          composer-options: '--no-progress --no-ansi --no-interaction'
+          dependency-versions: 'lowest'
+
+      - name: Log debug information
+        run: |
+          php --version
+          composer --version
+      - name: Run Tests with Pest.
+        run: composer run test

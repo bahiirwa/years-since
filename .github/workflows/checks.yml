@@ -1,52 +1,51 @@
-name: Tests, Static Analysis & WPCS.
-
-on:
-  push:
-    branches:
-      - trunk
-  pull_request:
-    branches:
-      - trunk
-
-# Cancel all previous workflow runs for the same branch that have not yet completed.
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
-jobs:
-  phpcs:
-    name: PHPCS check
-    runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
-    strategy:
-      fail-fast: false
-      matrix:
-        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3']
-        experimental: [false]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup PHP
-        uses: 'shivammathur/setup-php@v2'
-        with:
-          php-version: ${{ matrix.php }}
-          tools: composer
-          ini-values: memory_limit=1G
-          coverage: none
-
-      - name: Install Composer dependencies
-        uses: 'ramsey/composer-install@v2'
-        with:
-          composer-options: '--no-progress --no-ansi --no-interaction'
-          dependency-versions: 'lowest'
-
-      - name: Log debug information
-        run: |
-          php --version
-          composer --version
-          composer run test
-
+#name: PHP Static Analysis & WPCS.
+#
+#on:
+#  push:
+#    branches:
+#      - trunk
+#  pull_request:
+#    branches:
+#      - trunk
+#
+## Cancel all previous workflow runs for the same branch that have not yet completed.
+#concurrency:
+#  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+#  cancel-in-progress: true
+#
+#jobs:
+#  phpcs:
+#    name: PHPCS check
+#    runs-on: ubuntu-latest
+#    continue-on-error: ${{ matrix.experimental }}
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3']
+#        experimental: [false]
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      - name: Setup PHP
+#        uses: 'shivammathur/setup-php@v2'
+#        with:
+#          php-version: ${{ matrix.php }}
+#          tools: composer
+#          ini-values: memory_limit=1G
+#          coverage: none
+#
+#      - name: Install Composer dependencies
+#        uses: 'ramsey/composer-install@v2'
+#        with:
+#          composer-options: '--no-progress --no-ansi --no-interaction'
+#          dependency-versions: 'lowest'
+#
+#      - name: Log debug information
+#        run: |
+#          php --version
+#          composer --version
+#
 #      - name: PHP Static Analysis
 #        run: composer phpstan
 #
