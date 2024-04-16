@@ -1,4 +1,4 @@
-# Years Since
+# Years Since - Timeless Texts
 
 ![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/installs/years-since)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/years-since)

@@ -1,4 +1,4 @@
-=== Years Since ===
+=== Years Since - Timeless Texts ===
 Contributors: laurencebahiirwa
 Tags: date, update, updater, time, span, year, automated, references
 Donate link: https://paypal.me/laurencebahiirwa
@@ -36,6 +36,10 @@ Add a text attribute with value false i.e.
 
 It will output **23** instead of **23 years**.
 
+== Screenshots ==
+3. Sample shortcodes added in the editor.
+4. Preview of the shortcodes on the front end.
+
 == Installation ==
 * Navigate to your plugins admin page.
 * Search for "years since" and download the plugin.
@@ -60,7 +64,7 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 - Add: Require PHP 8.2.0
 - Add: Require PHP 7.4
 - Add: Function arguments and Return Type hinting.
-- Add: Testing framework with pest with CI.
+- Add: A testing framework with pest with CI.
 - Fix: Deprecate Editor poylfill function for the block editor.
 
 == 1.3.5 ==

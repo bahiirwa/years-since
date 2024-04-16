@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Years Since
+ * Plugin Name: Years Since - Timeless Texts
  * Plugin URI: https://github.com/bahiirwa/years-since/
- * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. Years since keeps "x" current in your posts to allow your content age well.
+ * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. This plugin enables your content to be timeless.
  * Version: 1.4.0
  * Author: Laurence Bahiirwa
  * Author URI: https://github.com/bahiirwa/years-since/
