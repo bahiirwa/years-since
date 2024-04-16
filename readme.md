@@ -57,6 +57,7 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 - Add: Require PHP 8.2.0
 - Add: Require PHP 7.4
 - Add: Function arguments and Return Type hinting.
+- Add: Testing framework with pest with CI.
 - Fix: Deprecate Editor poylfill function for the block editor.
 
 ### 1.3.5
