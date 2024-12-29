@@ -51,6 +51,9 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 
 ## Upgrade Notice
 
+### 1.4.1
+- Fix: Add proper escaping for the shortcode input.
+
 ### 1.4.0
 - Fix: Breaking month and day output.
 - Add: Testing for WP 6.5.2

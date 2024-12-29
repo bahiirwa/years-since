@@ -5,7 +5,7 @@ Donate link: https://paypal.me/laurencebahiirwa
 Requires at least: 4.9.0
 Tested up to: 6.3.1
 Requires PHP: 7.4
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ It will output **23** instead of **23 years**.
 4. Preview of the shortcodes on the front end.
 
 == Installation ==
-* Navigate to your plugins admin page.
+* Navigate to your plugins' admin page.
 * Search for "years since" and download the plugin.
 * Install using the plugin admin interface.
 
@@ -57,6 +57,9 @@ Yes. This will still work even if you revert to the Classic Editor seamlessly.
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 == Upgrade Notice ==
+
+== 1.4.1 ==
+- Fix: Add proper escaping for the shortcode input.
 
 == 1.4.0 ==
 - Fix: Breaking month and day output.

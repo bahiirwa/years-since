@@ -3,7 +3,7 @@
  * Plugin Name: Years Since - Timeless Texts
  * Plugin URI: https://github.com/bahiirwa/years-since/
  * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. This plugin enables your content to be timeless.
- * Version: 1.4.0
+ * Version: 1.4.1
  * Author: Laurence Bahiirwa
  * Author URI: https://github.com/bahiirwa/years-since/
  * Tested up to: 6.5.2
@@ -72,42 +72,42 @@ class YearsSince {
 
         if ( isset($attributes['y'])) {
             if (strlen($attributes['y']) !== 4) {
-                return sprintf( '<p>%s</p>', esc_attr__('Year must be 4 digits.', 'years-since') );
+                return sprintf( '<p>%s</p>', esc_html__('Year must be 4 digits.', 'years-since') );
             }
 
             // Bail if year is in the future.
             if ($attributes['y'] > date('Y')) {
-                return sprintf( '<p>%s</p>', esc_attr__('Year cannot be greater than current year.', 'years-since') );
+                return sprintf( '<p>%s</p>', esc_html__('Year cannot be greater than current year.', 'years-since') );
             }
         }
 
         if ( isset($attributes['m']) ) {
             if (strlen($attributes['m']) > 2) {
-                return sprintf( '<p>%s</p>', esc_attr__('Month must be 2 digits.', 'years-since') );
+                return sprintf( '<p>%s</p>', esc_html__('Month must be 2 digits.', 'years-since') );
             }
 
             if ( (int)$attributes['m'] > 12 ) {
-                return sprintf( '<p>%s</p>', esc_attr__('Month should be a value less than 12.', 'years-since') );
+                return sprintf( '<p>%s</p>', esc_html__('Month should be a value less than 12.', 'years-since') );
             }
         }
 
         if ( isset($attributes['d']) ) {
             if (strlen($attributes['d']) > 2) {
-                return sprintf( '<p>%s</p>', esc_attr__('Day must be 2 digits.', 'years-since') );
+                return sprintf( '<p>%s</p>', esc_html__('Day must be 2 digits.', 'years-since') );
             }
 
             if ( (int)$attributes['d'] > 31 ) {
-                return sprintf( '<p>%s</p>', esc_attr__('Days should be a value less than 31.', 'years-since') );
+                return sprintf( '<p>%s</p>', esc_html__('Days should be a value less than 31.', 'years-since') );
             }
 
             if ( (int)$attributes['m'] == 2 ) {
                 if ( ((int)$attributes['y'] % 2 === 0) && (int)$attributes['d'] > 29 ) {
                     return sprintf( '<p>%s</p>',
-                        esc_attr__( 'Days in Feb should be a value less than 29.', 'years-since' ) );
+                        esc_html__( 'Days in Feb should be a value less than 29.', 'years-since' ) );
                 }
                 if ( ((int)$attributes['y'] % 2 > 0) && (int)$attributes['d'] > 28 ) {
                     return sprintf( '<p>%s</p>',
-                        esc_attr__( 'Days in Feb should be a value less than 28.', 'years-since' ) );
+                        esc_html__( 'Days in Feb should be a value less than 28.', 'years-since' ) );
                 }
             }
         }
@@ -129,15 +129,15 @@ class YearsSince {
         if ( isset($attributes['text'] ) && 'false' === $attributes['text'] ) {
             $str = $difference->y;
             if ( '' !== $defaults['html'] ) {
-                $str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+                $str = '<' . esc_html( $defaults['html'] ) . '>' . esc_html( $str ) . '</' . esc_html( $defaults['html'] ) . '>';
             }
-            // $str = $difference->y;
+
             return $str;
         }
 
         // Compare the two dates using comparison methods.
         if ($inputDate > $today) {
-            return sprintf( '<p>%s</p>', esc_attr__( 'Invalid date provided. Date cannot be greater than today.', 'years-since') );
+            return sprintf( '<p>%s</p>', esc_html__( 'Invalid date provided. Date cannot be greater than today.', 'years-since') );
         }
 
         // Return Weeks or days if less than a Week
@@ -186,7 +186,7 @@ class YearsSince {
         );
 
         if ( '' !== $defaults['html'] ) {
-            $str = '<' . $defaults['html'] . '>' . $str . '</' . $defaults['html'] . '>';
+            $str = '<' . esc_html($defaults['html']) . '>' . esc_html($str) . '</' . esc_html($defaults['html']) . '>';
         }
 
         return $str;
