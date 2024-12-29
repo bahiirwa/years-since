@@ -31,7 +31,7 @@ function shortcode_atts() {
     return true;
 }
 
-function esc_attr__( string $text, string $domain ) {
+function esc_html__( string $text, string $domain ) {
     return $text;
 }
 
