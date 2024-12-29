@@ -3,10 +3,10 @@
  * Plugin Name: Years Since - Timeless Texts
  * Plugin URI: https://github.com/bahiirwa/years-since/
  * Description: Keep date time related texts relevant. "I have worked for x years." becomes outdated within a year. This plugin enables your content to be timeless.
- * Version: 1.4.1
+ * Version: 1.5.0
  * Author: Laurence Bahiirwa
  * Author URI: https://github.com/bahiirwa/years-since/
- * Tested up to: 6.5.2
+ * Tested up to: 6.7.1
  * Requires PHP: 7.4
  * Text Domain: years-since
  * License: GPL-2.0+
@@ -67,10 +67,11 @@ class YearsSince {
 
         $defaults = shortcode_atts( array(
             'html' => '',
+            'show' => '',
             'text' => 'true',
         ), $attributes );
 
-        if ( isset($attributes['y'])) {
+        if (isset($attributes['y']) || isset($attributes['show']) === 'y' ) {
             if (strlen($attributes['y']) !== 4) {
                 return sprintf( '<p>%s</p>', esc_html__('Year must be 4 digits.', 'years-since') );
             }

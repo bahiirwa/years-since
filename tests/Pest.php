@@ -35,6 +35,10 @@ function esc_html__( string $text, string $domain ) {
     return $text;
 }
 
+function esc_html( string $text ) {
+    return $text;
+}
+
 function __( string $text, string $domain ) {
     return $text;
 }

@@ -9,6 +9,7 @@
     },
     "scripts": {
         "tests:init": "./vendor/bin/pest --init",
-        "test": "./vendor/bin/pest"
+        "test": "./vendor/bin/pest",
+        "clean": "composer install --no-dev"
     }
 }
