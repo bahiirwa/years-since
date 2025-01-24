@@ -68,9 +68,9 @@ class YearsSince {
      * @param array  $attributes
      * @param string $today
      *
-     * @return string
+     * @return mixed
      */
-    public function shortcode_years_since( array $attributes, string $today = '' ): string {
+    public function shortcode_years_since( array $attributes, $today = '' ): string {
 
         $defaults = shortcode_atts( array(
             'html' => '',
