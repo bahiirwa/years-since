@@ -1,0 +1,1 @@
+alert('Malicious code can be added!');

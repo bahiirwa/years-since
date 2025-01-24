@@ -24,6 +24,12 @@ defined('ABSPATH') || die('Unauthorized Access!');
  * Implement the plugin. Let your post-time travel.
  */
 class YearsSince {
+    const allowed_tags = array(
+        'span', 'div', 'p', 'strong', 'em', 'strike',
+        'abbr', 'acronym', 'b', 'blockquote', 'cite',
+        'code', 'del', 'i', 'strong', 'q', 's', 'u'
+    );
+
     /**
      * A basic constructor.
      */
@@ -59,11 +65,12 @@ class YearsSince {
     /**
      * A method to return the markup that replaces the shortcode.
      *
-     * @param array $attributes
+     * @param array  $attributes
+     * @param string $today
      *
      * @return string
      */
-    public function shortcode_years_since( array $attributes, $today = '' ): string {
+    public function shortcode_years_since( array $attributes, string $today = '' ): string {
 
         $defaults = shortcode_atts( array(
             'html' => '',
@@ -71,7 +78,7 @@ class YearsSince {
             'text' => 'true',
         ), $attributes );
 
-        if (isset($attributes['y']) || isset($attributes['show']) === 'y' ) {
+        if ( isset($attributes['y']) ) {
             if (strlen($attributes['y']) !== 4) {
                 return sprintf( '<p>%s</p>', esc_html__('Year must be 4 digits.', 'years-since') );
             }
@@ -121,19 +128,15 @@ class YearsSince {
         $d = (isset($attributes['d']) && is_numeric($attributes['d'])) ? (int)$attributes['d'] : date('d');
 
         if ( '' === $today ) {
-            $today = new \DateTime();
+            $today = new DateTime();
         }
-        $inputDate  = new \DateTime("$y-$m-$d"); // Returns'2023-10-15'
+        $inputDate  = new DateTime("$y-$m-$d"); // Returns'2023-10-15'
         $difference = date_diff($today,$inputDate);
 
         // If only the number is needed, return it here.
         if ( isset($attributes['text'] ) && 'false' === $attributes['text'] ) {
             $str = $difference->y;
-            if ( '' !== $defaults['html'] ) {
-                $str = '<' . esc_html( $defaults['html'] ) . '>' . esc_html( $str ) . '</' . esc_html( $defaults['html'] ) . '>';
-            }
-
-            return $str;
+            return self::alars_html_output($attributes, $str);
         }
 
         // Compare the two dates using comparison methods.
@@ -141,7 +144,7 @@ class YearsSince {
             return sprintf( '<p>%s</p>', esc_html__( 'Invalid date provided. Date cannot be greater than today.', 'years-since') );
         }
 
-        // Return Weeks or days if less than a Week
+        // If less than a week, return Weeks or days.
         if ($difference->y < 1 && $difference->m < 1) {
             // Return Weeks
             if ($difference->d/7 > 1) {
@@ -186,7 +189,19 @@ class YearsSince {
             number_format($time)
         );
 
-        if ( '' !== $defaults['html'] ) {
+        return self::alars_html_output($defaults, $str);
+    }
+
+    /**
+     * Streamline the HTML Output basing on the allowed tags.
+     *
+     * @param $defaults
+     * @param $str
+     *
+     * @return string
+     */
+    public static function alars_html_output($defaults, $str = ''): string {
+        if ( '' !== $defaults['html'] && in_array($defaults['html'], self::allowed_tags, true) ) {
             $str = '<' . esc_html($defaults['html']) . '>' . esc_html($str) . '</' . esc_html($defaults['html']) . '>';
         }
 
