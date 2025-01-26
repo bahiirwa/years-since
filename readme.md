@@ -23,8 +23,12 @@ Or, if you wanted to update a time span on a particular anniversary, you could d
 ![Page/Post Preview](./.wordpress-org/screenshot-4.png)
 
 ### More attributes
+#### show attribute
+[y=2000 m=1 d=1 show='y'] will output `24 years` only skipping the month and day.
+[y=2000 m=1 d=1 show='ym'] will output `24 years 1 month` only skipping the day.
+
 #### html attribute
-Add specific HTML to the calculation with the html attrribute e.g.
+Add specific HTML to the calculation with the html attribute, e.g.
 
 `[years-since y=1990 html=span]` will wrap the output in a span tag.
 
@@ -50,6 +54,9 @@ Yes. This will still work even if you revert back to the Classic Editor seamless
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 ## Upgrade Notice
+
+### 1.5.0
+- Add: Show attribute to display only the year / year & month with the full date added.
 
 ### 1.4.1
 - Fix: Add proper escaping for the shortcode input.

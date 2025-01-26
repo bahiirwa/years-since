@@ -5,7 +5,7 @@ Donate link: https://paypal.me/laurencebahiirwa
 Requires at least: 4.9.0
 Tested up to: 6.3.1
 Requires PHP: 7.4
-Stable tag: 1.4.1
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,10 @@ Or, if you wanted to update a time span on a particular anniversary, you could d
 **I'm [years-since y=1990 m=5 d=16] old.**
 
 == More attributes ==
+**show**
+[y=2000 m=1 d=1 show='y'] will output `24 years` only skipping the month and day.
+[y=2000 m=1 d=1 show='ym'] will output `24 years 1 month` only skipping the day.
+
 **html**
 Add specific HTML tag to the calculation with the html attrribute e.g.
 
@@ -57,6 +61,9 @@ Yes. This will still work even if you revert to the Classic Editor seamlessly.
 You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here and also make some [Pull Requests through github](https://github.com/bahiirwa/years-since/)
 
 == Upgrade Notice ==
+
+== 1.5.0 ==
+- Add: Show attribute to display only the year / year & month with the full date added.
 
 == 1.4.1 ==
 - Fix: Add proper escaping for the shortcode input.
