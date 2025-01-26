@@ -57,6 +57,8 @@ You can raise lots of [issues](https://github.com/bahiirwa/years-since/) here an
 
 ### 1.5.0
 - Add: Show attribute to display only the year / year & month with the full date added.
+- Streamline the HTML Output basing on the allowed tags.
+- Add new attribute check.
 
 ### 1.4.1
 - Fix: Add proper escaping for the shortcode input.
